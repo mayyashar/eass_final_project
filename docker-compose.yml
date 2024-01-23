@@ -2,13 +2,15 @@ version: '3'
 services:
   pythonapp:
     image: project:latest
-    # build: /APP/dockerfile 
+    build: \APP\.
     ports:
       - 8000:8000
   
   postgres:
     container_name: postgresdb
     image: postgres:latest
+    build: \POSTGRES\.
+
     ports:
       - "5432:5432"
     environment:

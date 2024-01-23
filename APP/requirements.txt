@@ -2,3 +2,5 @@ uvicorn == 0.20.0
 fastapi==0.68.0
 numpy== 1.24.2
 psycopg2-binary
+Jinja2==3.0.3
+

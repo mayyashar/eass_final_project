@@ -1,0 +1,13 @@
+FROM nginx:alpine
+
+WORKDIR /my_app
+
+COPY may_shop.html ./
+
+COPY requirements.txt ./
+
+# RUN pip install -r requirements.txt
+
+EXPOSE 8080
+
+CMD ["nginx", "-g", "daemon off;"]

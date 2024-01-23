@@ -10,6 +10,8 @@ COPY requirements.txt ./
 
 COPY database.sql ./
 
+EXPOSE 5432
+
 # RUN pip install -r requirements.txt
 
-# CMD ["docker", "main:app", "--reload", "--host", "0.0.0.0",  "--port", "8000"]
+# CMD ["docker", "run", "-d", "-p", "5432:5432",  "--name", "postgresdb", "postgres:latest"]
