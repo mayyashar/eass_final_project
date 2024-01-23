@@ -1,0 +1,20 @@
+version: '3'
+services:
+  pythonapp:
+    image: project:latest
+    # build: /APP/dockerfile 
+    ports:
+      - 8000:8000
+  
+  postgres:
+    container_name: postgresdb
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=root
+
+
+
+
+
