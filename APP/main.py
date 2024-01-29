@@ -22,8 +22,7 @@ app = FastAPI()
 
 class Item(BaseModel):
     name: str
-    price: float
-    is_offer: Union[bool, None] = None
+    description: str
 
 templates =Jinja2Templates(directory="templates")
 
@@ -42,6 +41,18 @@ def index2(request: Request):
     return templates.TemplateResponse("index.html", context)
 
         # user = 'postgres', password='root', host='172.17.0.2', port='5432')
+
+@app.post("/items/")
+def create_item(item: Item, connection: psycopg2.extensions.connection = Depends(get_connection)):
+    try:
+        with connection.cursor() as cursor:
+            insert_query = "INSERT INTO items (name, description) VALUES (%s, %s) RETURNING id;"
+            cursor.execute(insert_query, (item.name, item.description))
+            item_id = cursor.fetchone()[0]
+            connection.commit()
+            return {"id": item_id, **item.dict()}
+    except Exception as e:
+        return {"error": str(e)}
 
 
 
@@ -90,7 +101,7 @@ def index2(request: Request):
 #             return {"id":item_id, **item}
         
 #     except Exception as e:
-#             raise NameError
+#             raise NameError   
 
     
 

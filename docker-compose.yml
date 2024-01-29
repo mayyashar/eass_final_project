@@ -15,7 +15,13 @@ services:
       - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=root
-
+ 
+  fronted:
+    image: fronted:latest
+    build: .\APP\templates\
+    ports:
+      - 8080:8080
+  
 
 
 
