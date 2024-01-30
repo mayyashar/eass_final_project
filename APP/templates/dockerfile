@@ -2,6 +2,6 @@ FROM nginx:alpine
 
 WORKDIR /my_app
 
-COPY index.html ./
+COPY books.html ./
 
 CMD ["nginx", "-g", "daemon off;"]
