@@ -10,6 +10,9 @@ from uuid import UUID
 from POSTGRES.database import engine, sessionlocal
 from POSTGRES import models
 from sqlalchemy.orm import Session
+import requests
+from fastapi.responses import RedirectResponse
+
 
 app = FastAPI()
 
@@ -43,7 +46,6 @@ def read_api(request:Request, db: Session = Depends(get_connection)):
     if "text/html" in accept_header:
         return templates.TemplateResponse("books.html", {"request": request, "books": books}, media_type="text/html")
     else:
-        # Otherwise, return JSON
         return {"request": "GET", "books": books}
 
 
@@ -95,7 +97,28 @@ def delete_book(book_id: int, book: Book, db: Session=Depends(get_connection)):
     db.commit()
 
 
+@app.get("/Books-shop")
+def redirecting():
+    return RedirectResponse ("http://localhost:8501/")
 
+
+
+# @app.get("/favicon.ico")
+# def ignore_favicon():
+#     return {"message": "Ignoring favicon request"}
+
+# STREAMLIT_HOST = "localhost"
+# @app.get("/books-shop")
+# def trigger_streamlit_ui():
+#     try:
+#         # Make a request to the Streamlit UI endpoint using the service name
+#         response = requests.get(f"http://{STREAMLIT_HOST}:8501/")
+#         response.raise_for_status()  # Raise an exception for non-200 status codes
+#         return {"message": "Streamlit UI triggered successfully"}
+#     except requests.ConnectionError:
+#         raise HTTPException(status_code=503, detail="Failed to connect to Streamlit UI server")
+#     except requests.RequestException as e:
+#         raise HTTPException(status_code=500, detail=f"Failed to trigger Streamlit UI: {str(e)}")
 
 
 # class Item(BaseModel):

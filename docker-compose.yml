@@ -12,6 +12,7 @@ services:
   
   
   pythonapp:
+    container_name: backend
     image: project:latest
     build: \APP\.
     depends_on:
@@ -20,11 +21,12 @@ services:
       - 8000:8000
   
  
-  fronted:
-    image: fronted:latest
-    build: .\APP\templates\
+  frontend:
+    container_name: frontend
+    image: frontend:latest
+    build: ./APP/templates/
     ports:
-      - 8080:8080
+      - 8501:8501
   
 
 
