@@ -102,99 +102,15 @@ def redirecting():
     return RedirectResponse ("http://localhost:8501/")
 
 
-
-# @app.get("/favicon.ico")
-# def ignore_favicon():
-#     return {"message": "Ignoring favicon request"}
-
 # STREAMLIT_HOST = "localhost"
 # @app.get("/books-shop")
 # def trigger_streamlit_ui():
 #     try:
 #         # Make a request to the Streamlit UI endpoint using the service name
-#         response = requests.get(f"http://{STREAMLIT_HOST}:8501/")
+#         response = requests.get("http://{STREAMLIT_HOST}:8501/")
 #         response.raise_for_status()  # Raise an exception for non-200 status codes
 #         return {"message": "Streamlit UI triggered successfully"}
 #     except requests.ConnectionError:
 #         raise HTTPException(status_code=503, detail="Failed to connect to Streamlit UI server")
 #     except requests.RequestException as e:
 #         raise HTTPException(status_code=500, detail=f"Failed to trigger Streamlit UI: {str(e)}")
-
-
-# class Item(BaseModel):
-#     name: str
-#     description: str
-
-
-# @app.get("/")
-# def index():
-#     return {"greeting": "Hello, everything is up and running!"}
-
-# @app.get("/index", response_class=HTMLResponse)
-# def index2(request: Request):
-#     clothes= [
-#             {'name':'tshirt', 'size':'S'}
-#     ]
-
-#     context={'request': request, 'clothes':clothes}
-#     return templates.TemplateResponse("index.html", context)
-
-        # user = 'postgres', password='root', host='172.17.0.2', port='5432')
-
-
-
-
-# from models import RequestBody, ResponseBody
-
-
-
-
-# @app.get("/items/{item_id}")
-# def read_item(item_id: int, q: Union[str, None] = None):
-#     return {"item_id": item_id, "q": q}
-
-# @app.get('/colors') )
-# def read_item(item_id: int, q: Union[str, None] = None):
-#     return {"item_id": item_id, "q": q}
-
-
-# @app.put("/items/{item_id}")
-# def update_item(item_id: int, item: Item):
-#     return {"item_name": item.name, "item_id": item_id}
-
-# @app.post("/items/{item_id}")
-# def update_item(item_id: int, item: Item):
-#     return {"item_name": item.name, "item_id": item_id}
-
-# @app.get("/items/{item_id}")
-# async def read_item(item_id: str):
-#     return {"item_id": item_id}
-
-# async def get_shop_html():
-#     with open(f".\\frontend\\may_shop.html", "r") as file:
-#         return file.read()
-
-
-
-
-
-# @app.post("/items/{item_id}")
-# def create_item(item: dict, connection: psycopg2.extensions.connection = Depends(get_connection)):
-#     try:
-#         with connection.cursor() as cursor:
-#             insert_query = "INSERT INTO items (name, description) VALUES (%s, %s) RETURNING id;"
-#             cursor.execute(insert_query, (item["name"], item["description"]))
-#             item_id = cursor.fetchone()[0]
-#             connection.commit()
-#             return {"id":item_id, **item}
-        
-#     except Exception as e:
-#             raise NameError   
-
-    
-
-
-
-
-
-# @app.post("/dot")

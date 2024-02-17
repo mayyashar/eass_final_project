@@ -4,7 +4,7 @@ services:
   postgres:
     container_name: postgresdb
     image: postgres:latest
-    build: \POSTGRES\.
+    build: /POSTGRES/.
     ports:
       - "5432:5432"
     environment:
@@ -14,7 +14,7 @@ services:
   pythonapp:
     container_name: backend
     image: project:latest
-    build: \APP\.
+    build: /APP/.
     depends_on:
       - postgres
     ports:
@@ -24,7 +24,7 @@ services:
   frontend:
     container_name: frontend
     image: frontend:latest
-    build: ./APP/templates/
+    build: ./APP/UI/
     ports:
       - 8501:8501
   
