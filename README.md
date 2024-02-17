@@ -40,7 +40,7 @@ this will create 3 containers for frontend, backend and postgres.
 
    ``` localhost:8000/Books-shop ```
 
-you can also see logs on inside the container.
+you can also see logs inside the container.
  
 ## Architecture 👷🏽
 
