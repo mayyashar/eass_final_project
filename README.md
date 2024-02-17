@@ -53,26 +53,3 @@ Backend: The backend is built with FastAPI, which fetches the ISS location data 
 postgres: postgres is used saving the books store data. The Jenkins pipeline is defined in a Jenkinsfile and is containerized using Docker.
 
 Docker: Docker is used for containerization and deployment. Dockerfiles and Docker Compose are used to define and build the containers for the frontend, backend, and Jenkins.
-
-```
-+---------------------------------------------------------+
-|                      User Interface                     |
-|                    (Streamlit UI)                       |
-+---------------------------------------------------------+
-                           |
-                           | REST API Requests
-                           |
-                           ▼
-+---------------------------------------------------------+
-|                      Backend API                        |
-|                   (FastAPI Server)                      |
-+---------------------------------------------------------+
-                           |
-                           | Docker Compose
-                           |
-                           ▼
-+---------------------------------------------------------+
-|                        DB                                |
-|                     ( posgtres)                          |
-+---------------------------------------------------------+
-
