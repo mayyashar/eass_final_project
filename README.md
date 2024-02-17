@@ -50,6 +50,6 @@ Frontend: The frontend is built with Streamlit, providing an interactive map int
 
 Backend: The backend is built with FastAPI, which fetches the ISS location data through an API call. The backend serves two endpoints.
 
-postgres: postgres is used saving the books store data. The Jenkins pipeline is defined in a Jenkinsfile and is containerized using Docker.
+postgres: postgres is used saving the books store data.
 
 Docker: Docker is used for containerization and deployment. Dockerfiles and Docker Compose are used to define and build the containers for the frontend, backend, and Jenkins.
