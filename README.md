@@ -18,7 +18,7 @@ good luck!
 
 1. First clone the repository to your local system :
 
-``` git clone https://github.com/mayyashar```
+``` git clone https://github.com/mayyashar/eass_final_project.git```
 
 2. Then to start the application simply write the command : 
 
